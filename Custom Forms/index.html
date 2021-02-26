@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My custom Forum</title>
+    <link rel="stylesheet" href="css/jcf.css"> 
+    <link rel="stylesheet" href="css/style1.css">
+    <link rel="stylesheet" href="css/style.css">
+    
+    <link rel="stylesheet" href="css/resp.css">
+</head>
+<body>
+    <div class="wrapper">
+        <div class="container">
+            <form action="#">
+                <label for="fname">First Name:</label>
+                <input type="text" id="fname" name="firstname" placeholder="Your name....">
+                <label for="lname">Last Name:</label>
+                <input type="text" id="lname" name="lastname" placeholder="Your last name..">
+                <label for="subject">Comments:</label>
+                <textarea id="subject" name="subject" placeholder="Write something.." style="height:200px">
+                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                </textarea>
+                <div class="col">
+                    <label for="country">Country</label>
+                    <div class="row">
+                        <select class="custom color" data-jcf='{"wrapNative": false, "wrapNativeOnMobile": false, "fakeDropInBody": false, "useCustomScroll": false}'>
+                            <option value="v1">Select Country</option>
+                            <option class="color green" value="v2">Pakistan</option>
+                            <option class="color red" value="v3">Canada</option>
+                            <option class="color blue" value="v4">UK</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="wrapper-demo">
+                        <label for="description">Description</label>
+                        <div id="dd" class="wrapper-dropdown-3" tabindex="1">
+                            <span>Shoes - Leather</span>
+                            <ul class="dropdown">
+                                <li><a href="#"><i></i>Christmas Decorations - </a></li>
+                                <li><a href="#"><i ></i>UPS Delivery</a></li>
+                                <li><a href="#"><i ></i>Private jet</a></li>
+                            </ul>
+                        </div>
+                    ​</div>
+                    </div>
+                <form>
+                    <label for="tid">Tax ID/ IRS Number</label>
+                    <div class="tooltip">?
+                        <span class="tooltiptext">Fill this in when shipping a package to the US worth more then $2500 USD</span>
+                    </div>
+                    <input type="text" id="tid" name="taxid" placeholder="">
+                </form>
+            </form>
+        </div>
+        <div class="container2">
+            <div class="col">
+                <label for="que">How much does one piece weigh?</label>
+                <div class="row">
+                    <input type="radio" class="radio" name="rtest" checked="checked" id="rad1" />
+                    <label for="rad1" title="Unchecked state">Grams</label>
+                </div>
+                <div class="row">
+                    <input type="radio" class="radio" name="rtest" id="rad2" data-jcf='{"wrapNative": true}' />
+                    <label for="rad2" title="Checked state">Ounces</label>
+                </div>
+            </div>
+            <label for="que">Do you want to set a Budget?</label>
+            <label class="container3">Yes
+                <input type="checkbox" checked="checked">
+                <span class="checkmark"></span>
+            </label>
+            
+            <label for="description">Include:</label>
+            <label class="container3">Transport
+                <div class="tooltip">?</div>
+                <input type="checkbox">
+                <span class="checkmark"></span>
+            </label>
+            <label class="container3">Taxes
+                <div class="tooltip">?</div>
+                <input type="checkbox">
+                <span class="checkmark"></span>
+            </label>
+            <label for="units">Select Units:</label><br>
+            <div class="btn">
+                <button class="active">cm/kg</button>
+                <button>in/lbs</button>
+            </div>
+            <form action="#">
+                <label for="uname">Username:</label>
+                <div class="text">
+                    <p>(Must be 1 to 32 characters and can contain letters, numbers and upto 1 period and 1 underscore)</p>
+                </div>
+                <div class="text2">
+                    <p>Your username cannot contain any special characters.</p>
+                    <p>Your username cannot contain more than 1 underscore.</p>
+                    <p>Your username cannot contain more than 1 period.</p>
+                </div>
+                <input type="text" id="uname" name="username" placeholder="username....">
+                <label for="pwd">Password:</label>
+                <div class="tooltip2">
+                    <input type="text" id="pwd" name="pwd" placeholder="Password....">
+                    <span class="tooltiptext2">Must be 8 to 32 character <br> <br>
+                        <span class="grey">Must contain atleast one uppercase and 1 lowercase letter <br> <br> </span> 
+                        <span class="red">Must contain atleast 1 number or special character(*,&,!,@,#)</span></span>
+                </div>
+                <p></p>
+            </form>
+    </div>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+    <script type="text/javascript" src="js/modernizr.custom.79639.js"></script>
+		<noscript><link rel="stylesheet" type="text/css" href="css/noJS.css" /></noscript> 
+    <script src="js/jcf.js"></script>
+    <script src="js/jcf.select.js"></script>
+    <script>
+		$(function() {
+			jcf.replaceAll();
+		});
+	</script>
+   
+		<script type="text/javascript">
+			
+			function DropDown(el) {
+				this.dd = el;
+				this.placeholder = this.dd.children('span');
+				this.opts = this.dd.find('ul.dropdown > li');
+				this.val = '';
+				this.index = -1;
+				this.initEvents();
+			}
+			DropDown.prototype = {
+				initEvents : function() {
+					var obj = this;
+
+					obj.dd.on('click', function(event){
+						$(this).toggleClass('active');
+						return false;
+					});
+
+					obj.opts.on('click',function(){
+						var opt = $(this);
+						obj.val = opt.text();
+						obj.index = opt.index();
+						obj.placeholder.text(obj.val);
+					});
+				},
+				getValue : function() {
+					return this.val;
+				},
+				getIndex : function() {
+					return this.index;
+				}
+			}
+
+			$(function() {
+
+				var dd = new DropDown( $('#dd') );
+
+				$(document).click(function() {
+					// all dropdowns
+					$('.wrapper-dropdown-3').removeClass('active');
+				});
+
+			});
+
+		</script>
+    
+</body>
+
+</html>
